@@ -13,17 +13,18 @@ public class Main
 
 		Map<String, Integer> frequency = new HashMap<>();
 
-		for(String word : words) {
+		for(String word : words) 
+		{
 			if(frequency.containsKey(word))
 			{
-				frequency.put(word, frequency.get(word) + 1);
+				frequency.put(word, frequency.get(word) + 1); // .get pulls value out and adds 1
 			} 
 			else 
 			{
 				frequency.put(word, 1);
 			}
 		}
-		System.out.println(frequency);
+		// System.out.println(frequency); // sanity check to confirm if frequency compiled correctly.
 
 		ArrayList<HashMap.Entry<String, Integer>> sortedMap = new ArrayList<>();
 		sortedMap.addAll(frequency.entrySet());
@@ -37,10 +38,16 @@ public class Main
 
 		});
 
-		// print sorted array list
-		for (HashMap.Entry<String, Integer> w : sortedMap)
+		// for (HashMap.Entry<String, Integer> w : sortedMap) used to print whole list
+
+		// set n to counter to display total printed.
+		int n = 0;
+
+		// limit sys print to 50 iterations of sorted ArrayList.
+		for (int i = 0; i < 50 ; i++)
 		{
-			System.out.println("Word: " + w.getKey() + " is present " + w.getValue() + " times ");
+			n++;
+			System.out.println("Word " + n + ": " + sortedMap.get(i).getKey() + " is present " + sortedMap.get(i).getValue() + " times ");
 		}
 	}
 }
